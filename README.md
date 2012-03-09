@@ -31,6 +31,28 @@ The default values for longpos, latpos and altpos are 1, 2 and 3 respectively.
 Note that the position counting starts with 0 so the longpos is supposed to be
 the second column in the log file by default.
 
+Example
+-------
+
+Look at the examples/logging.xml file. It defines the format of the CSV file
+that the FlightGear creates during the flight. Run fgfs with the following
+parameter
+
+    $ fgfs --config=/home/mudrd8mz/fg/logging.xml
+
+After you exit from FlightGear, you will find a file profile.csv created in the
+current directory. To generate the KML file from it, run
+
+    $ python fgkml.py profile.csv > profile.kml
+
+See examples/profile.kml for an example output. Then create a map in Google
+maps (or edit some existing map) and import the KML file to it. See
+examples/profile.png for an example of the result.
+
+Note that you can open profile.csv in a spreadsheet processor like LibreOffice
+Calc or MS Excel and generate other useful charts like altitude profile or fuel
+consumption chart.
+
 Author
 ------
 

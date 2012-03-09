@@ -1,0 +1,35 @@
+<PropertyList>
+ <logging>
+  <log>
+   <enabled>true</enabled>
+   <filename>profile.csv</filename>
+   <interval-ms>10000</interval-ms>
+   <delimiter>,</delimiter>
+   <entry>
+    <enabled>true</enabled>
+    <title>Longitude (deg)</title>
+    <property>/position/longitude-deg</property>
+   </entry>
+   <entry>
+    <enabled>true</enabled>
+    <title>Latitude (deg)</title>
+    <property>/position/latitude-deg</property>
+   </entry>
+   <entry>
+    <enabled>true</enabled>
+    <title>Altitude (ft)</title>
+    <property>/position/altitude-ft</property>
+   </entry>
+   <entry>
+    <enabled>true</enabled>
+    <title>Ground speed (kt)</title>
+    <property>/velocities/groundspeed-kt</property>
+   </entry>
+   <entry>
+    <enabled>true</enabled>
+    <title>Fuel level (lbs)</title>
+    <property>/consumables/fuel/tank/level-lbs</property>
+   </entry>
+  </log>
+ </logging>
+</PropertyList>
