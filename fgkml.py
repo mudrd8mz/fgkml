@@ -57,6 +57,9 @@ def make_kml(path, trackname):
             "startname":trackname + " - start",
             "startdescription":"Initial position",
             "startcoordinates":points[0],
+            "endname":trackname + " - end",
+            "enddescription":"End position, enjoying the $100 hamburger",
+            "endcoordinates":points[-1],
             "coordinates":coordinates}
     return """ <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://earth.google.com/kml/2.2">
@@ -66,11 +69,18 @@ def make_kml(path, trackname):
   <Style id="style1">
     <IconStyle>
       <Icon>
-        <href>http://maps.gstatic.com/mapfiles/ms2/micons/plane.png</href>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/flag.png</href>
       </Icon>
     </IconStyle>
   </Style>
   <Style id="style2">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/plane.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style3">
     <LineStyle>
       <color>73FF0000</color>
       <width>5</width>
@@ -79,7 +89,7 @@ def make_kml(path, trackname):
   <Placemark>
     <name>{trackname}</name>
     <description><![CDATA[<div dir="ltr">{trackdescription}</div>]]></description>
-    <styleUrl>#style2</styleUrl>
+    <styleUrl>#style3</styleUrl>
     <LineString>
       <tessellate>0</tessellate>
       <gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
@@ -94,6 +104,14 @@ def make_kml(path, trackname):
     <styleUrl>#style1</styleUrl>
     <Point>
       <coordinates>{startcoordinates}</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>{endname}</name>
+    <description><![CDATA[<div dir="ltr">{enddescription}</div>]]></description>
+    <styleUrl>#style2</styleUrl>
+    <Point>
+      <coordinates>{endcoordinates}</coordinates>
     </Point>
   </Placemark>
 </Document>
